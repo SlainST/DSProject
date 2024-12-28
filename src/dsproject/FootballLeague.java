@@ -51,8 +51,8 @@ public class FootballLeague {
     public void registerPlayerToHashMap(Player player, Team whichTeamToRegister){
         TeamNode current =teams.head;
         boolean teamfound=false;
-        while(current.next!=null){
-            if(whichTeamToRegister==current.team){
+        while(current!=null){
+            if(whichTeamToRegister.name.equals(current.team.name)){
                 teamfound=true;
                 playerHashMap.addNewPlayerToHashMap(player);
                 current.team.PlayerToTeam(player);
@@ -85,7 +85,7 @@ public class FootballLeague {
         };
         TeamNode current=teams.head;
         String RandomNameResult= RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)];
-        while(current.next!=null){
+        while(current!=null){
             if(current.team.name==RandomNameResult){
                 //teams.Addteam(new Team(RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)]));
                 current=teams.head;
