@@ -92,8 +92,10 @@ class AVLTreeForTeams {
     void inorderTraversal(AVLNode node) {
         if (node != null) {
             inorderTraversal(node.left);
-            System.out.println(node.team);
+            System.out.println(node.team.name);
             inorderTraversal(node.right);
         }
+        else
+            System.out.println("yok");
     }
 }
