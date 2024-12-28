@@ -7,14 +7,17 @@ public class Player {
     // name, specific ID ,position, goal score
     
     String name;
+    String surname;
     int playerID;
     int position;
     int goalScore;
+    
 
     Scanner scanner = new Scanner(System.in);
     // Player Addition
-    public Player(String name,int position){
+    public Player(String nameString,String surnameString,int position){
         this.name = name.substring(0,1).toUpperCase() + name.substring(1);
+        this.surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
         while (position < 0 || position >= 4 ){
             System.out.println("Geçersiz Pozisyon");
             System.out.println("Geçerli pozisyon Giriniz:\n0: Kaleci\n1: Defans\n2: Orta Saha\n3: Forvet");
@@ -62,10 +65,10 @@ public class Player {
                 System.out.println("yanlış pozisyon");
                 break;
             
-        }
-                
+        }           
     }
-
+    
+    
     
     
 }
