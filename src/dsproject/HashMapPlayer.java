@@ -39,4 +39,11 @@ public class HashMapPlayer {
         
         return myHashArray[a];
     }
+    public void addNewPlayerToHashMap(Player player){
+        int a= ((int) Math.pow(player.playerID,3))*17*11*13%size;
+        
+        myHashArray[a]=player;
+
+        //PlayerLinkedListWillBeAddedToResolveConflicts.
+    }
 }

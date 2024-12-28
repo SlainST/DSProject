@@ -22,5 +22,21 @@ public class FootballLeague {
     }
     public void AddTeamToLeague(Team newteam){
         teams.Addteam(newteam);
+        teamHashMap.addNewTeamToHashMap(newteam);
+    }
+    public void registerPlayerToHashMap(Player player, Team whichTeamToRegister){
+        TeamNode current = teams.head;
+        boolean teamfound=false;
+        while(current.next!=null){
+            if(whichTeamToRegister==current.team){
+                teamfound=true;
+                playerHashMap.addNewPlayerToHashMap(player);
+                current.team.PlayerToTeam(player);
+            }
+            current=current.next;
+        }
+        if(teamfound=false){
+            System.out.println("couldnt find team to add");
+        }
     }
 }

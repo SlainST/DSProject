@@ -54,7 +54,7 @@ public class Team {
     }
     
     //how many will be added
-    public void CreateNewRandomPlayer(int position){
+    public Player CreateNewRandomPlayer(int position){
         String[] names = new String[] {
         "Alexander", "Benjamin", "William", "James", "Henry", "Daniel", "Matthew", "Ethan", "Michael", 
         "Jacob", "David", "Samuel", "Joseph", "Elijah", "Lucas", "Oliver", "Caleb", "Jackson", "Logan", 
@@ -89,6 +89,7 @@ public class Team {
         };
         Player newPlayer = new Player(names[new Random().nextInt(names.length)],surnames[new Random().nextInt(surnames.length)],position);
         players.AddPlayer(newPlayer);
+        return newPlayer;
     }
     
 }

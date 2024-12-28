@@ -12,7 +12,26 @@ public class DSProject {
         
         
         //how will be used
+        Team CBUS=new Team("CBU");
+        HashMapTeam teamHashMap= new HashMapTeam(CBUS);
+        HashMapPlayer playerHashMap= new HashMapPlayer(Taskin);
+                
+        FootballLeague league= new FootballLeague(playerHashMap, teamHashMap);
         
+        
+        league.registerPlayerToHashMap(Hasan,CBUS);
+        league.registerPlayerToHashMap(Serhat, CBUS);
+        
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(1),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(1),CBUS);
+        
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
+        
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
         
         
         
