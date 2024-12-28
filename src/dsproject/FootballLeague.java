@@ -11,8 +11,8 @@ package dsproject;
 public class FootballLeague {
     HashMapPlayer playerHashMap;
     HashMapTeam teamHashMap;
-    StackMatchHistory stackMatchHistory;
-    QueueMatches queueMatches;
+    // StackMatchHistory stackMatchHistory;
+    // QueueMatches queueMatches;              ****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı
     
     TeamLinkedList teams;
     public FootballLeague(HashMapPlayer playerHashmap, HashMapTeam teamHashmap){
@@ -23,6 +23,7 @@ public class FootballLeague {
     public void AddTeamToLeague(Team newteam){
         teams.Addteam(newteam);
         teamHashMap.addNewTeamToHashMap(newteam);
+        StackMatchHistory stackMatchHistory = new StackMatchHistory(7);//Team number
     }
     public void registerPlayerToHashMap(Player player, Team whichTeamToRegister){
         TeamNode current = teams.head;

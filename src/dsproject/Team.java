@@ -2,7 +2,8 @@ package dsproject;
 
 import java.util.Random;
 
-public class Team {
+class Team extends TeamLinkedList {
+    
     String name;
     int teamID;
     PlayerLinkedList players;

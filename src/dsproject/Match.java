@@ -1,4 +1,4 @@
-package dsproject;
+package dsproject; 
 
 import java.util.Random;
 
@@ -18,7 +18,7 @@ public class Match {
     public void MatchSimulate(){
         
         //maç yapacak takımlardan birisinin kalecisi yoksa ya da takım 11 kişiden az oyuncuya sahipse maç oynatma
-        
+       
         
         if(team1.TeamMemberCount>10||team2.TeamMemberCount>10){
             boolean team1hasAkeeper=false;
@@ -56,9 +56,6 @@ public class Match {
                 MatchResult();
                 UpdateTeamStates();
             }
-            
-            
-            
        
         }else{
             if(team1.TeamMemberCount<11&&team2.TeamMemberCount<11){
@@ -98,3 +95,5 @@ public class Match {
         System.out.print(team1.name +"  " + teamScore1+" : " + teamScore2 + "  " + team2.name);
     }
 }
+
+

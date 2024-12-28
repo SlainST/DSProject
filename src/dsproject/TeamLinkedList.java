@@ -10,7 +10,7 @@ package dsproject;
  */
 public class TeamLinkedList {
     
-
+    public int totalTeamNumber = 0;
     
     public TeamNode head = null; 
     
@@ -25,6 +25,7 @@ public class TeamLinkedList {
             }
             current.next = temp;
         }
+        totalTeamNumber++;
     }
     public void Displayteam(Team team){
         TeamNode current = head;
