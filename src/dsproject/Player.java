@@ -16,8 +16,8 @@ public class Player {
     Scanner scanner = new Scanner(System.in);
     // Player Addition
     public Player(String nameString,String surnameString,int position){
-        this.name = name.substring(0,1).toUpperCase() + name.substring(1);
-        this.surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
+        this.name = nameString.substring(0,1).toUpperCase() + nameString.substring(1);
+        this.surname = surnameString.substring(0,1).toUpperCase() + surnameString.substring(1);
         while (position < 0 || position >= 4 ){
             System.out.println("Geçersiz Pozisyon");
             System.out.println("Geçerli pozisyon Giriniz:\n0: Kaleci\n1: Defans\n2: Orta Saha\n3: Forvet");

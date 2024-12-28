@@ -17,7 +17,7 @@ public class DSProject {
         HashMapPlayer playerHashMap= new HashMapPlayer(Taskin);
                 
         FootballLeague league= new FootballLeague(playerHashMap, teamHashMap);
-        
+        league.teams.Addteam(CBUS);
         
         league.registerPlayerToHashMap(Hasan,CBUS);
         league.registerPlayerToHashMap(Serhat, CBUS);
@@ -32,6 +32,9 @@ public class DSProject {
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
+        
+        
+        league.CreateNewRandomTeam(14);
         
         
         

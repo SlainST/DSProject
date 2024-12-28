@@ -6,7 +6,7 @@ class Team extends TeamLinkedList {
     
     String name;
     int teamID;
-    PlayerLinkedList players;
+    PlayerLinkedList players= new PlayerLinkedList();
     int totalPoint;
     int goalDifference;
     int PlayedGame = 0;
