@@ -52,10 +52,43 @@ public class Match {
             else{
                 Random random = new Random();
                 
+                int HowManyShotsTeam1Tried= random.nextInt(0,6);
+                int HowManyShotsTeam2Tried= random.nextInt(0,6);
+                
+                for (int i = 0; i < HowManyShotsTeam1Tried; i++) {
+                    int WhichPlayerInTeam1WillTry= random.nextInt(1,12);
+                    PlayerNode currentPlayer= team1.players.head;
+                    for (int j = 0; j < WhichPlayerInTeam1WillTry; j++) {
+                        currentPlayer= currentPlayer.next;
+                    }
+                    int didScored= random.nextInt(0,2);
+                    
+                    if(didScored==1){
+                        currentPlayer.player.goalScore++;
+                        teamScore1++;
+                    }
+                }
+                
+                //////////
+                ///
+                for (int i = 0; i < HowManyShotsTeam2Tried; i++) {
+                    int WhichPlayerInTeam2WillTry= random.nextInt(1,12);
+                    PlayerNode currentPlayer= team2.players.head;
+                    for (int j = 0; j < WhichPlayerInTeam2WillTry; j++) {
+                        currentPlayer= currentPlayer.next;
+                    }
+                    int didScored= random.nextInt(0,2);
+                    
+                    if(didScored==1){
+                        currentPlayer.player.goalScore++;
+                        teamScore2++;
+                    }
+                }   
                 
                 
                 //teamScore1 = random.nextInt(6);
                 //teamScore2 = random.nextInt(6);
+                
                 MatchResult();
                 UpdateTeamStates();
             }

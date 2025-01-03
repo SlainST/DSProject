@@ -46,7 +46,7 @@ public class FootballLeague {
         heapTeams = new HeapTreeForTeams(teamCountOnLeague);
         heapPlayers = new HeapTreeForPlayers(playerHashMap.size);
        
-       
+       ;
        
        TeamNode current=teams.head;
        while(current!=null){
