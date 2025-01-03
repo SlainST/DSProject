@@ -51,8 +51,11 @@ public class Match {
                 team2.UpdatePoints(-1);}
             else{
                 Random random = new Random();
-                teamScore1 = random.nextInt(6);
-                teamScore2 = random.nextInt(6);
+                
+                
+                
+                //teamScore1 = random.nextInt(6);
+                //teamScore2 = random.nextInt(6);
                 MatchResult();
                 UpdateTeamStates();
             }

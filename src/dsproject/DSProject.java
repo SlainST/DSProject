@@ -12,32 +12,40 @@ public class DSProject {
         
         
         //how will be used
-        Team CBUS=new Team("CBU");
-        HashMapTeam teamHashMap= new HashMapTeam(CBUS);
+        Team team1=new Team("CBU");
+        HashMapTeam teamHashMap= new HashMapTeam(team1);
         HashMapPlayer playerHashMap= new HashMapPlayer(Taskin);
                 
         FootballLeague league= new FootballLeague(playerHashMap, teamHashMap);
-        league.teams.Addteam(CBUS);
+        league.teams.Addteam(team1);
         
-        league.registerPlayerToHashMap(Hasan,CBUS);
-        league.registerPlayerToHashMap(Serhat, CBUS);
+        league.registerPlayerToHashMap(Hasan,team1);
+        league.registerPlayerToHashMap(Serhat, team1);
         
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(1),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(1),CBUS);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(1),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(1),team1);
         
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(2),CBUS);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
         
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
-        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(0),CBUS);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(3),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(3),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(3),team1);
+        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(0),team1);
         
         
-        league.CreateNewRandomTeam(14);
+        Team team2 = league.CreateNewRandomTeam(11);
+        Team team3 =league.CreateNewRandomTeam(11);
+        Team team4 =league.CreateNewRandomTeam(11);
+        Team team5 =league.CreateNewRandomTeam(11);
+        Team team6 =league.CreateNewRandomTeam(11);
+        Team team7 =league.CreateNewRandomTeam(11);
+        Team team8 =league.CreateNewRandomTeam(11);
+        
+        
         System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
-        
+        System.out.println(""+team7.name+"   "+ team7.TeamMemberCount);
         
     }
     

@@ -12,6 +12,8 @@ class Team extends TeamLinkedList {
     int PlayedGame = 0;
     int TeamMemberCount;
     
+    //PlayerLinkedList playersMain= new PlayerLinkedList();
+    
     public BinarySearchTree thisTeamsBST= new BinarySearchTree();
     
     boolean HasAKeeper;

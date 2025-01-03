@@ -17,6 +17,8 @@ public class FootballLeague {
     QueueMatches queueMatches;              //****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı    
     TeamLinkedList teams= new TeamLinkedList();
 
+    
+    
     int teamCountOnLeague=0;
     
     HeapTreeForTeams heapTeams = new HeapTreeForTeams(teamCountOnLeague);
@@ -37,10 +39,14 @@ public class FootballLeague {
     }
     
     public void PlayMatch(Team team1, Team team2){
-       Match match= new Match(team1, team2);
        
-       heapTeams = new HeapTreeForTeams(teamCountOnLeague);
-       heapPlayers = new HeapTreeForPlayers(playerHashMap.size);
+        
+        Match match= new Match(team1, team2);
+
+        heapTeams = new HeapTreeForTeams(teamCountOnLeague);
+        heapPlayers = new HeapTreeForPlayers(playerHashMap.size);
+       
+       
        
        TeamNode current=teams.head;
        while(current!=null){
@@ -93,7 +99,7 @@ public class FootballLeague {
     
     
     
-    public void CreateNewRandomTeam(int howManyMember){
+    public Team CreateNewRandomTeam(int howManyMember){
         String[] RandomTeamsNames = {
         "Real Madrid", "Barcelona", "Manchester United", "Liverpool", "Bayern Munich", "Paris Saint-Germain", "Juventus", "Chelsea", "Arsenal", "Manchester City", 
         "AC Milan", "Inter Milan", "Tottenham Hotspur", "Atletico Madrid", "Borussia Dortmund", "Ajax", "Benfica", "Porto", "Roma", "Napoli", 
@@ -125,11 +131,11 @@ public class FootballLeague {
         this.registerPlayerToHashMap(willAddedTeam.CreateNewRandomPlayer(1),willAddedTeam);
         this.registerPlayerToHashMap(willAddedTeam.CreateNewRandomPlayer(2),willAddedTeam);
         this.registerPlayerToHashMap(willAddedTeam.CreateNewRandomPlayer(3),willAddedTeam);
-        for(int i=0;i<howManyMember;i++){
+        for(int i=0;i<howManyMember-4;i++){
             this.registerPlayerToHashMap(willAddedTeam.CreateNewRandomPlayer(new Random().nextInt(1,4)),willAddedTeam);
         }
         
-        
+        return willAddedTeam;
         
         
     }
