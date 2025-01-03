@@ -12,6 +12,8 @@ class Team extends TeamLinkedList {
     int PlayedGame = 0;
     int TeamMemberCount;
     
+    public BinarySearchTree thisTeamsBST= new BinarySearchTree();
+    
     boolean HasAKeeper;
     
     
@@ -31,6 +33,8 @@ class Team extends TeamLinkedList {
          if(player.position==0){
              this.HasAKeeper=true;
          }
+         thisTeamsBST.insert(player.playerID);
+         TeamMemberCount++;
     }
     
     public void UpdateGoalDifference(int diff){

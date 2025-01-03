@@ -35,7 +35,7 @@ public class DSProject {
         
         
         league.CreateNewRandomTeam(14);
-        
+        System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
         
         
     }

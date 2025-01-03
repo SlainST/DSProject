@@ -14,6 +14,8 @@ public class TeamLinkedList {
     
     public TeamNode head = null; 
     
+    public BinarySearchTree bstTeams= new BinarySearchTree();
+    
     public void Addteam(Team team){
         TeamNode temp = new TeamNode(team);
         if (head == null)
@@ -25,6 +27,8 @@ public class TeamLinkedList {
             }
             current.next = temp;
         }
+        bstTeams.insert(team.teamID);
+        
         totalTeamNumber++;
     }
     public void Displayteam(Team team){
