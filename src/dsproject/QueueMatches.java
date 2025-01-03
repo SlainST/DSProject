@@ -37,17 +37,22 @@ public class QueueMatches {
         }
         
     }
-    public void Dequeue(){
-        if (isEmpty() == true){
-            System.out.println("Takvimde oynanacak maç yok...");
-        }else{
-            Team newPlayedMatch = ScheduleMatch[front];
+    public Team Dequeue(){
+        Team newPlayedMatch;
+        if(rear==0){
+            newPlayedMatch=new Team("hs", "aaaaa");
+        }
+        
+             newPlayedMatch= ScheduleMatch[front];
             for (int i = 1;i<=rear; i++){
                 ScheduleMatch[i-1] = ScheduleMatch[i];
-            }
-            rear--;
-            System.out.println(newPlayedMatch + " maçı oynandı...");
+            
+            
         }
+            rear--;
+            System.out.println(newPlayedMatch.name + " maçı oynandı...");
+        return newPlayedMatch;
+        
     }
     
 }

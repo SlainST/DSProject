@@ -128,7 +128,7 @@ public class Match {
         team2.PlayedGame++;
     }
     public void MatchResult(){
-        System.out.print(team1.name +"  " + teamScore1+" : " + teamScore2 + "  " + team2.name);
+        System.out.println(team1.name +"  " + teamScore1+" : " + teamScore2 + "  " + team2.name);
     }
 }
 

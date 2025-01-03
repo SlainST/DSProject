@@ -46,7 +46,29 @@ public class DSProject {
         
         System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
         System.out.println(""+team7.name+"   "+ team7.TeamMemberCount+" --- "+league.teamHashMap.findTeam("CBU").teamIDtoInt);
-        league.PlayMatch(team1, team2);
+        league.ArrangeMatches();
+        league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
+        for(int i=0;i<28;i++){
+            league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
+        } 
+        Team deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        deneme= league.heapTeams.removeMax();
+        System.out.println(""+deneme.name+deneme.totalPoint);
+        
+        
         
     } 
 

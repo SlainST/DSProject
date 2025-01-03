@@ -13,8 +13,8 @@ import java.util.Random;
 public class FootballLeague {
     HashMapPlayer playerHashMap;
     HashMapTeam teamHashMap;
-    StackMatchHistory stackMatchHistory;
-    QueueMatches queueMatches;              //****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı    
+    StackMatchHistory stackMatchHistory=new StackMatchHistory(56);
+    QueueMatches queueMatches= new QueueMatches(56);              //****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı    
     TeamLinkedList teams= new TeamLinkedList();
 
     
@@ -125,4 +125,29 @@ public class FootballLeague {
         
         
     }
+    
+    void ArrangeMatches(){
+        TeamNode team1Current=teams.head;
+        TeamNode team2Current=teams.head.next;
+        
+        while(team1Current!=null){
+            
+            team2Current=team1Current.next;
+            while(team2Current!=null){
+                if(team1Current.team.teamIDtoInt==team2Current.team.teamIDtoInt){
+                    team2Current= team2Current.next;
+                }else{
+                    queueMatches.EnQueue(team1Current.team);
+                    queueMatches.EnQueue(team2Current.team);
+                    
+                }
+                
+                
+                
+                team2Current= team2Current.next;
+            }
+            team1Current= team1Current.next;
+        }
+    }
+    
 }
