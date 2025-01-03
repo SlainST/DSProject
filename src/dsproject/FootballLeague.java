@@ -21,7 +21,7 @@ public class FootballLeague {
     
     int teamCountOnLeague=0;
     
-    HeapTreeForTeams heapTeams = new HeapTreeForTeams(teamCountOnLeague);
+    HeapTreeForTeams heapTeams = new HeapTreeForTeams(512);
     HeapTreeForPlayers heapPlayers = new HeapTreeForPlayers(512);
     
     public FootballLeague(HashMapPlayer playerHashmap, HashMapTeam teamHashmap){
@@ -42,24 +42,23 @@ public class FootballLeague {
        
         
         Match match= new Match(team1, team2);
+        match.MatchSimulate();
+        heapTeams = new HeapTreeForTeams(512);
+        heapPlayers = new HeapTreeForPlayers(512);
 
-        heapTeams = new HeapTreeForTeams(teamCountOnLeague);
-        heapPlayers = new HeapTreeForPlayers(playerHashMap.size);
-       
-       ;
        
        TeamNode current=teams.head;
        while(current!=null){
            heapTeams.insert(current.team);
-           current=current.next;
            PlayerNode currentPlayer= current.team.players.head;
            while(currentPlayer!=null){
                heapPlayers.insert(currentPlayer.player);
                currentPlayer=currentPlayer.next;
            }
+           current=current.next;
        }
-       
-       
+
+        //System.out.println(team1.name+": "+match.teamScore1+" - "+team2.name+": "+match.teamScore2 );
        
     }
     

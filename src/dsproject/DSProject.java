@@ -46,6 +46,7 @@ public class DSProject {
         
         System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
         System.out.println(""+team7.name+"   "+ team7.TeamMemberCount);
+        league.PlayMatch(team1, team2);
         
     }
     
