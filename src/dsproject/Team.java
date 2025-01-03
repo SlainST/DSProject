@@ -55,7 +55,7 @@ class Team extends TeamLinkedList {
     }
     
     public final int IDConverterToInt(String teamID){
-        String convert = (String) teamID.charAt(0) + "" + (String) teamID.charAt(1);
+        String convert = (int) teamID.charAt(0) + "" + (int) teamID.charAt(1);
         this.teamIDtoInt = Integer.parseInt(convert);
         return teamIDtoInt;
     }
