@@ -32,6 +32,7 @@ public class DSProject {
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
         league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(3),CBUS);
+        league.registerPlayerToHashMap(CBUS.CreateNewRandomPlayer(0),CBUS);
         
         
         league.CreateNewRandomTeam(14);
