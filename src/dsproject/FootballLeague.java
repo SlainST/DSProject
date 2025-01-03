@@ -98,31 +98,18 @@ public class FootballLeague {
     
     
     
-    public Team CreateNewRandomTeam(int howManyMember){
-        String[] RandomTeamsNames = {
-        "Real Madrid", "Barcelona", "Manchester United", "Liverpool", "Bayern Munich", "Paris Saint-Germain", "Juventus", "Chelsea", "Arsenal", "Manchester City", 
-        "AC Milan", "Inter Milan", "Tottenham Hotspur", "Atletico Madrid", "Borussia Dortmund", "Ajax", "Benfica", "Porto", "Roma", "Napoli", 
-        "Boca Juniors", "River Plate", "Flamengo", "Palmeiras", "Santos", "Corinthians", "Internacional", "Gremio", "Atletico Mineiro", "São Paulo", 
-        "Celtic", "Rangers", "Olympique Marseille", "Lyon", "Monaco", "Lille", "Sevilla", "Valencia", "Villarreal", "Real Betis", 
-        "Schalke 04", "Bayer Leverkusen", "RB Leipzig", "Wolfsburg", "Eintracht Frankfurt", "Hertha Berlin", "Hamburg", "Werder Bremen", "Stuttgart", "Köln", 
-        "Zenit Saint Petersburg", "CSKA Moscow", "Spartak Moscow", "Lokomotiv Moscow", "Shakhtar Donetsk", "Dynamo Kyiv", "Red Star Belgrade", "Partizan Belgrade", 
-        "Galatasaray", "Fenerbahçe", "Besiktas", "Trabzonspor", "Al Ahly", "Zamalek", "Kaizer Chiefs", "Orlando Pirates", "Mamelodi Sundowns", "TP Mazembe", 
-        "Urawa Red Diamonds", "Yokohama F. Marinos", "Kashima Antlers", "Guangzhou Evergrande", "Shanghai SIPG", "Beijing Guoan", "Al Hilal", "Al Nassr", 
-        "Persepolis", "Esteghlal", "Sydney FC", "Melbourne Victory", "Auckland City", "Club America", "Chivas Guadalajara", "Cruz Azul", "Monterrey", "Tigres UANL", 
-        "Barcelona SC", "Independiente del Valle", "Flamurtari", "Dinamo Tirana", "Rosenborg", "Molde", "Brondby", "FC Copenhagen", "Malmo FF", "AIK", 
-        "Legia Warsaw", "Lech Poznan", "Slavia Prague", "Sparta Prague", "Red Bull Salzburg", "Rapid Vienna", "Basel", "Young Boys", "APOEL", "Olympiacos", 
-        "Panathinaikos", "AEK Athens", "Anderlecht", "Club Brugge", "Standard Liege", "Dinamo Zagreb", "Hajduk Split", "Ferencvaros", "Maccabi Tel Aviv", "Hapoel Be'er Sheva"
-        };
-        TeamNode current=teams.head;
-        String RandomNameResult= RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)];
-        while(current!=null){
-            if(current.team.name==RandomNameResult){
-                //teams.Addteam(new Team(RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)]));
-                current=teams.head;
-                RandomNameResult= RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)];}
-            current=current.next;
-        }
-        Team willAddedTeam=new Team(RandomNameResult);
+    public Team CreateNewRandomTeam(String TeamID,String name,int howManyMember){
+        
+//        TeamNode current=teams.head;
+//        String RandomNameResult= RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)];
+//        while(current!=null){
+//            if(current.team.name==RandomNameResult){
+//                //teams.Addteam(new Team(RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)]));
+//                current=teams.head;
+//                RandomNameResult= RandomTeamsNames[new Random().nextInt(RandomTeamsNames.length)];}
+//            current=current.next;
+//        }
+        Team willAddedTeam=new Team(TeamID,name);
         teams.Addteam(willAddedTeam);
         
         

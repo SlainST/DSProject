@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dsproject;
 
-/**
- *
- * @author slainst
- */
 public class BinarySearchTree {
     
-    Node root;
+    BSTNode root;
     
     public BinarySearchTree(){
         root = null;
@@ -18,25 +11,25 @@ public class BinarySearchTree {
     
     public void insert(int data){
         if(root == null){
-            root = new Node(data);
+            root = new BSTNode(data);
             return;
         }
         else{
-            Node current = root;
-            Node parent  = null;
+            BSTNode current = root;
+            BSTNode parent  = null;
             
             while(true){
                 parent = current;
                 if(current.data > data){
                     current = current.left;
                     if(current == null){
-                      parent.left = new Node(data);
+                      parent.left = new BSTNode(data);
                       return;
                     }
                 }else if(current.data < data){
                     current = current.right;
                     if(current == null){
-                        parent.right = new Node(data);
+                        parent.right = new BSTNode(data);
                         return;
                     }
                 } else{
@@ -51,9 +44,9 @@ public class BinarySearchTree {
     public void insertRecursive(int newData){
         root = insertRecursive(root, newData);
     }
-    public Node insertRecursive(Node root, int newData){
+    public BSTNode insertRecursive(BSTNode root, int newData){
         if(root == null){
-            return new Node(newData);
+            return new BSTNode(newData);
         }else{
             if(root.data > newData){
                 root.left = insertRecursive(root.left, newData);
@@ -70,7 +63,7 @@ public class BinarySearchTree {
     public void deleteRecursive(int key){
         root = deleteRecursive(root, key);
     }
-    public Node deleteRecursive(Node root,int key){
+    public BSTNode deleteRecursive(BSTNode root,int key){
         if(root == null){
             return null;
         }else if(root.data > key){
@@ -90,7 +83,7 @@ public class BinarySearchTree {
         }
         return root;
     }
-    public int minValue(Node root){
+    public int minValue(BSTNode root){
         int min = root.data;
         
         while(root.left != null){
@@ -101,7 +94,7 @@ public class BinarySearchTree {
     }
     
     
-    public void printInorder(Node root){
+    public void printInorder(BSTNode root){
         
         if(root != null){
             printInorder(root.left);
@@ -110,7 +103,7 @@ public class BinarySearchTree {
         }
         
     }
-    public void printPreorder(Node root){
+    public void printPreorder(BSTNode root){
         
         if(root != null){
             System.out.print(root.data + " ");
@@ -119,7 +112,7 @@ public class BinarySearchTree {
         }
         
     }
-    public void printPostorder(Node root){
+    public void printPostorder(BSTNode root){
         
         if(root != null){
             printInorder(root.left);

@@ -4,13 +4,13 @@
  */
 package dsproject;
 
-public class Node {
+public class BSTNode {
     
     int data;
-    Node left;
-    Node right;
+    BSTNode left;
+    BSTNode right;
     
-    public Node(int value){
+    public BSTNode(int value){
         this.data = value;
     }
     

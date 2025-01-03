@@ -14,7 +14,7 @@ public class HashMapTeam {
     Team[] myHashArrayForNames= new Team[size];
     
     public HashMapTeam(Team team){
-        int a= ((int) Math.pow(team.teamID,3))*17*11*13%size;
+        int a= ((int) Math.pow(team.teamIDtoInt,3))*17*11*13%size;
         int b;
         
         try {
@@ -36,7 +36,7 @@ public class HashMapTeam {
             
             int b;
             if(myHashArrayForID[i]!=null){
-                int a= ((int) Math.pow(myHashArrayForID[i].teamID,3))*17*11*13%HashMapSize;
+                int a= ((int) Math.pow(myHashArrayForID[i].teamIDtoInt,3))*17*11*13%HashMapSize;
                 
                 try {
             b= ((int) Math.pow((int)myHashArrayForNames[i].name.charAt(0)*(int)myHashArrayForNames[i].name.charAt(1)*(int)myHashArrayForNames[i].name.charAt(5),3))*17*11+(int)myHashArrayForNames[i].name.charAt(2)*13%this.size;
@@ -69,7 +69,7 @@ public class HashMapTeam {
     
     
     public void addNewTeamToHashMap(Team team){
-        int a= (((int) Math.pow(team.teamID,3))*17*11*13)%size;
+        int a= (((int) Math.pow(team.teamIDtoInt,3))*17*11*13)%size;
         int b;
         myHashArrayForID[a]=team;
         try {

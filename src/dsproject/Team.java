@@ -5,12 +5,13 @@ import java.util.Random;
 class Team extends TeamLinkedList {
     
     String name;
-    int teamID;
+    String teamID;
     PlayerLinkedList players= new PlayerLinkedList();
     int totalPoint;
     int goalDifference;
     int PlayedGame = 0;
     int TeamMemberCount;
+    int teamIDtoInt;
     
     //PlayerLinkedList playersMain= new PlayerLinkedList();
     
@@ -19,15 +20,14 @@ class Team extends TeamLinkedList {
     boolean HasAKeeper;
     
     
-    public Team(String name){
+    public Team(String teamID,String name){
         
         this.name = name;
         this.teamID = teamID;
         this.players = new PlayerLinkedList(); 
         this.totalPoint = 0;
         this.goalDifference = 0;
-        
-        this.teamID=IDGenerator(this);
+        this.teamIDtoInt = IDConverterToInt(teamID);
     }
     
     public void PlayerToTeam(Player player){
@@ -54,10 +54,10 @@ class Team extends TeamLinkedList {
         System.out.println("Average:   " + this.goalDifference);
     }
     
-    public int IDGenerator(Team team){
-        Random random = new Random();
-        this.teamID = random.nextInt(0,1000000000);
-        return teamID;
+    public final int IDConverterToInt(String teamID){
+        String convert = (String) teamID.charAt(0) + "" + (String) teamID.charAt(1);
+        this.teamIDtoInt = Integer.parseInt(convert);
+        return teamIDtoInt;
     }
     
     //how many will be added
