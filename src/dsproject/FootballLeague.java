@@ -14,10 +14,13 @@ public class FootballLeague {
     HashMapPlayer playerHashMap;
     HashMapTeam teamHashMap;
     StackMatchHistory stackMatchHistory;
-    QueueMatches queueMatches;              //****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı
-    
+    QueueMatches queueMatches;              //****Bunları her takımı oluşturduğumuzda takımlar için teker teker atamak daha mantıklı    
     TeamLinkedList teams= new TeamLinkedList();
+
     int teamCountOnLeague=0;
+    
+    HeapTreeForTeams heapTeams = new HeapTreeForTeams(teamCountOnLeague);
+    HeapTreeForPlayers heapPlayers = new HeapTreeForPlayers(512);
     
     public FootballLeague(HashMapPlayer playerHashmap, HashMapTeam teamHashmap){
         this.playerHashMap=playerHashmap;
@@ -29,9 +32,31 @@ public class FootballLeague {
         teamHashMap.addNewTeamToHashMap(newteam);
         
         teamCountOnLeague++;
-        
+        heapTeams = new HeapTreeForTeams(teamCountOnLeague);
         stackMatchHistoryChange();
     }
+    
+    public void PlayMatch(Team team1, Team team2){
+       Match match= new Match(team1, team2);
+       
+       heapTeams = new HeapTreeForTeams(teamCountOnLeague);
+       heapPlayers = new HeapTreeForPlayers(playerHashMap.size);
+       
+       TeamNode current=teams.head;
+       while(current!=null){
+           heapTeams.insert(current.team);
+           current=current.next;
+           PlayerNode currentPlayer= current.team.players.head;
+           while(currentPlayer!=null){
+               heapPlayers.insert(currentPlayer.player);
+               currentPlayer=currentPlayer.next;
+           }
+       }
+       
+       
+       
+    }
+    
     public void stackMatchHistoryChange(){
         int n=teamCountOnLeague;
         int k=2;
