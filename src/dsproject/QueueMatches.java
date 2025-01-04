@@ -39,8 +39,8 @@ public class QueueMatches {
     }
     public Team Dequeue(){
         Team newPlayedMatch;
-        if(rear==0){
-            newPlayedMatch=new Team("hs", "aaaaa");
+        if(rear==-1){
+            System.out.println("Oynanacak Maç Yok...");
         }
         
              newPlayedMatch= ScheduleMatch[front];

@@ -64,36 +64,31 @@ class Team extends TeamLinkedList {
     //how many will be added
     public Player CreateNewRandomPlayer(int position){
         String[] names = new String[] {
-        "Alexander", "Benjamin", "William", "James", "Henry", "Daniel", "Matthew", "Ethan", "Michael", 
-        "Jacob", "David", "Samuel", "Joseph", "Elijah", "Lucas", "Oliver", "Caleb", "Jackson", "Logan", 
-        "Nathan", "Thomas", "Liam", "Gabriel", "Leo", "Daniel", "Jack", "Isaac", "Samuel", "Andrew", "Ryan", 
-        "Joshua", "Matthew", "David", "Henry", "Sebastian", "Owen", "Daniel", "Christopher", "Landon", 
-        "Isaiah", "Benjamin", "Caleb", "Jack", "Nolan", "Gabriel", "Adam", "Christian", "Matthew", "Nicholas", 
-        "Levi", "Eli", "Finn", "Miles", "Jaxon", "Samuel", "Cameron", "Oliver", "Evan", "Elijah", "Ronan", 
-        "Asher", "Jace", "Mason", "Xander", "Zachary", "Luke", "Joshua", "Blake", "Eli", "Aaron", "Leo", 
-        "Toby", "Joshua", "Zane", "Jasper", "Maxwell", "Victor", "Carter", "Reed", "Dominic", "Charlie", 
-        "Theo", "Arthur", "Miles", "Seth", "Cole", "Harrison", "Graham", "Bennett", "Felix", "Grant", 
-        "Sawyer", "Jude", "Wesley", "Hudson", "Brock", "Dean", "Hunter", "Wyatt", "Jude", "Everett", 
-        "Blaise", "Sullivan", "Riley", "Gage", "Dylan", "Ryder", "Brady", "Colton", "Chance", "Aidan", 
-        "Gavin", "Milo", "Jeremiah"
-        };
+        "Hasan","Serhat","Taşkın","Eymen","Mustafa","Yusuf","Berk","Hüseyin","Batuhan",
+            "Egemen","Efe","Tuğrul","Tuna","Ali","Emre","Furkan","Barış","Soydan",
+            "Muhammet","Ahmet","Hikmet","Abdülkerim","Ozan","Rasim","Burak","Ersin",
+            "Mert","Göktuğ","Emir","Tayyip","Onur","Talha","Arda","Emirhan","Necip",
+            "Salih","Fahri","Kerem","Kemal","Yakup","Serkan","Emre Can","Can","Semih",
+            "Erhan","İrfan Can","Osman","Çağlar","Levent","Samet","Recep","Cengiz",
+            "Hakan","Sedat","İsmail","Bartuğ","Cenk","Oğuz","Sercan","Hamit","Günay",
+            "Atakan","Metehan","Kaan","Eyüp","Berkan","Esat","Oktay","Berke","Gökdeniz",
+            "Yunus","Acun","Baturalp","Baturay","Alp","Aras","Bahadır","Barbaros","Rauf",
+            "Bilgehan","Bora","Buğra","Ensar","Çağan","Bülent","Erdem","Ertem","Şener","Atıl"
+            
+            };
 
             String[] surnames = new String[] {
-        "Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", 
-        "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", 
-        "Martinez", "Roberts", "Clark", "Rodriguez", "Lewis", "Walker", "Allen", "Young", "Hernandez", 
-        "King", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Mitchell", "Perez", 
-        "Robinson", "Turner", "Evans", "Torres", "Wright", "Sanchez", "Hill", "Collins", "Stewart", 
-        "Morris", "Rogers", "Reed", "Cook", "Morgan", "Bell", "Murphy", "Bailey", "Rivera", "Cooper", 
-        "Richardson", "Howard", "Ward", "Flores", "Gomez", "James", "Bryant", "Alexander", "Hamilton", 
-        "Graham", "Sullivan", "Wallace", "Wood", "Cole", "West", "Jordan", "Coleman", "Kelly", "Jenkins", 
-        "Perry", "Powell", "Long", "Patterson", "Hughes", "Foster", "Sanders", "Bryan", "Ross", "Peterson", 
-        "Gray", "Jameson", "Bennett", "Woodward", "Bowman", "Chavez", "Daniels", "Kelley", "Simmons", 
-        "Fisher", "Wagner", "Arnold", "Carroll", "Strickland", "Curtis", "Snyder", "Cameron", "Craig", 
-        "Patton", "Mendoza", "Barnes", "Henderson", "Bryan", "Holmes", "Gibson", "Duncan", "Spencer", 
-        "Daniels", "Morales", "Fowler", "Bishop", "Schmidt", "Lynch", "Bates", "Ferguson", "Wells", 
-        "Carlson", "Webb", "Schneider", "Page", "Davidson", "Harrison", "Griffin", "Richards", "Brock", 
-        "Wolf", "Sandoval", "Barker", "Holland", "Stanley", "Mason", "Cameron", "Curtis", "Davis", "Vasquez"
+        "Çelik","Tufan","Kuş","Karahan","Yılmaz","Barış","Altay","Sade","Yangıncı",
+                "Turan","Tosun","Kaan","Karagülle","Atay","Çıra","Bölükbaşı","Alper",
+                "Zengin","Kökçür","Kökçü","Kumsavuran","Erdoğan","Yavaş","Alptekin",
+                "Bardakçı","Kütahyalı","Öztürk","Türk","Bektaş","Şengül","Uysal","Ata",
+                "Koru","Korutürk","Aktürkoğlu","ÖZtemel","Osmanoğlu","Cura","Ozan","Şen",
+                "İpek","Ünder","Kahveci","Kızıl","Söğüncü","Ertuna","Lor","Bozca","Ergün",
+                "Altun","Peker","Yılkı","Yasin","Torun","Kurul","Özyakup","Altıntop","Gök",
+                "Özyurt","Hancı","Kazgan","Tuncer","Berkant","Yıdıran","Genç","Sağcan","Gül",
+                "Akgün","Ilıcalı","Tekin","Anar","Sergü","Bulut","Akman","Kaptan","Faik",
+                "Bilge","Emir","Kum","Sansar","Irmak","Ecevit","Güngör","Sıdan","Keser","Gün",
+                "Burgu","Ataç","Deniz","Korkmaz","Gülmez","Sever","Samancıoğlu"
         };
         Player newPlayer = new Player(names[new Random().nextInt(names.length)],surnames[new Random().nextInt(surnames.length)],position);
         players.AddPlayer(newPlayer);

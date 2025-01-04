@@ -100,12 +100,18 @@ public class HeapTreeForPlayers {
     }
 
     // Remove the maximum element (root) from the heap
-    public Player removeMax() {
-        if (size == 0) throw new IllegalStateException("Heap is empty");
-        Player max = player[0];
-        player[0] = player[size - 1];
-        size--;
-        heapifyDown();
+    public Player removeMax(int j) {
+        int i=j;
+        Player max= player[0];
+        if(i>=0){
+            if (size == 0) throw new IllegalStateException("Heap is empty");
+            max = player[0];
+            player[0] = player[size - 1];
+            size--;
+            heapifyDown();
+            i--;
+            max = removeMax(i);
+        }
         return max;
     }
 

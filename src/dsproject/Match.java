@@ -52,8 +52,8 @@ public class Match {
             else{
                 Random random = new Random();
                 
-                int HowManyShotsTeam1Tried= random.nextInt(0,6);
-                int HowManyShotsTeam2Tried= random.nextInt(0,6);
+                int HowManyShotsTeam1Tried= random.nextInt(0,20);
+                int HowManyShotsTeam2Tried= random.nextInt(0,20);
                 
                 for (int i = 0; i < HowManyShotsTeam1Tried; i++) {
                     int WhichPlayerInTeam1WillTry= random.nextInt(1,12);

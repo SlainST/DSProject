@@ -18,7 +18,8 @@ public class HashMapTeam {
         int b;
         
         try {
-            b= ((int) Math.pow((int)team.name.charAt(0)*(int)team.name.charAt(1)*(int)team.name.charAt(5),3)*17*11+(int)team.name.charAt(2)*13)%this.size;
+            b= ((int) Math.pow((int)team.name.charAt(0)*(int)team.name.charAt(1)*(int)team.name.charAt(5),2)*17*11+(int)team.name.charAt(2)*13)%this.size;
+            System.out.println("aaa");
         } catch (StringIndexOutOfBoundsException e) {
             b= ((int) Math.pow((int)team.name.charAt(0),3)*17*11+(int)team.name.charAt(0)*13)%this.size;
         }        

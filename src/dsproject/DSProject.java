@@ -12,7 +12,7 @@ public class DSProject {
         
         
         //how will be used
-        Team team1=new Team("CBU","CBU");
+        Team team1=new Team("CBU","CBUFK");
         HashMapTeam teamHashMap= new HashMapTeam(team1);
         HashMapPlayer playerHashMap= new HashMapPlayer(Taskin);
                 
@@ -80,19 +80,24 @@ public class DSProject {
         league.teams.bstTeams.printInorder(league.teams.bstTeams.root);//alphabeticOrder team names
         
         System.out.println("-----------------------------");
-        Player best=league.heapPlayers.removeMax();
-        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        Player best=league.heapPlayers.removeMax(1);
+        System.out.println(best.name+" " + best.surname+" total goal: "+ best.goalScore);
         
-        best=league.heapPlayers.removeMax();
-        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        best=league.heapPlayers.removeMax(1);
+        System.out.println(best.name+" " + best.surname+" total goal: "+ best.goalScore);
+
         
-        best=league.heapPlayers.removeMax();
-        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        best=league.heapPlayers.removeMax(1);
+        System.out.println(best.name+" " + best.surname+ " total goal: "+ best.goalScore);
+
+        
         
         System.out.println("-------------------------");
         
         league.stackMatchHistory.PopTheMatch().MatchResult();  //last 3 Matches
         league.stackMatchHistory.PopTheMatch().MatchResult();
+        league.stackMatchHistory.PopTheMatch().MatchResult();
+        
         league.stackMatchHistory.PopTheMatch().MatchResult();
         
     } 
