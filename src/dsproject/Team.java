@@ -16,7 +16,7 @@ class Team extends TeamLinkedList {
     
     //PlayerLinkedList playersMain= new PlayerLinkedList();
     
-    public BinarySearchTree thisTeamsBST= new BinarySearchTree();
+    public BinarySearchTreeForPlayers thisTeamsBST= new BinarySearchTreeForPlayers();
     
     boolean HasAKeeper;
     
@@ -36,7 +36,7 @@ class Team extends TeamLinkedList {
          if(player.position==0){
              this.HasAKeeper=true;
          }
-         thisTeamsBST.insert(player.playerID);
+         thisTeamsBST.insertRecursive(player);
          TeamMemberCount++;
     }
     

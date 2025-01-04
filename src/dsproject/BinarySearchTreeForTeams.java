@@ -1,35 +1,35 @@
 
 package dsproject;
 
-public class BinarySearchTree {
+public class BinarySearchTreeForTeams {
     
-    BSTNode root;
+    BSTNodeForTeams root;
     
-    public BinarySearchTree(){
+    public BinarySearchTreeForTeams(){
         root = null;
     }
     
-    public void insert(int data){
+    public void insert(Team team){
         if(root == null){
-            root = new BSTNode(data);
+            root = new BSTNodeForTeams(team);
             return;
         }
         else{
-            BSTNode current = root;
-            BSTNode parent  = null;
+            BSTNodeForTeams current = root;
+            BSTNodeForTeams parent  = null;
             
             while(true){
                 parent = current;
-                if(current.data > data){
+                if(current.data > team.teamIDtoInt){
                     current = current.left;
                     if(current == null){
-                      parent.left = new BSTNode(data);
+                      parent.left = new BSTNodeForTeams(team);
                       return;
                     }
-                }else if(current.data < data){
+                }else if(current.data < team.teamIDtoInt){
                     current = current.right;
                     if(current == null){
-                        parent.right = new BSTNode(data);
+                        parent.right = new BSTNodeForTeams(team);
                         return;
                     }
                 } else{
@@ -41,29 +41,34 @@ public class BinarySearchTree {
             
         }
     }
-    public void insertRecursive(int newData){
-        root = insertRecursive(root, newData);
+    public void insertRecursive(Team newData){
+        root = insertRecursive(root, newData,0);
     }
-    public BSTNode insertRecursive(BSTNode root, int newData){
+    public BSTNodeForTeams insertRecursive(BSTNodeForTeams root, Team newData, int j){
+        int i=j;
         if(root == null){
-            return new BSTNode(newData);
+            return new BSTNodeForTeams(newData);
         }else{
-            if(root.data > newData){
-                root.left = insertRecursive(root.left, newData);
-            }else if(root.data < newData){
-                root.right = insertRecursive(root.right, newData);
+            if(root.data > newData.teamIDtoInt){
+                root.left = insertRecursive(root.left, newData,i);
+            }else if(root.data < newData.teamIDtoInt){
+                root.right = insertRecursive(root.right, newData,i);
+            }
+            else if(root.data > newData.teamIDtoInt){
+                i++;
+                root.left = insertRecursive(root.left, newData,i);
+            
             }
             return root;
         }
     }
-
     
 
 
     public void deleteRecursive(int key){
         root = deleteRecursive(root, key);
     }
-    public BSTNode deleteRecursive(BSTNode root,int key){
+    public BSTNodeForTeams deleteRecursive(BSTNodeForTeams root,int key){
         if(root == null){
             return null;
         }else if(root.data > key){
@@ -83,7 +88,7 @@ public class BinarySearchTree {
         }
         return root;
     }
-    public int minValue(BSTNode root){
+    public int minValue(BSTNodeForTeams root){
         int min = root.data;
         
         while(root.left != null){
@@ -94,30 +99,30 @@ public class BinarySearchTree {
     }
     
     
-    public void printInorder(BSTNode root){
+    public void printInorder(BSTNodeForTeams root){
         
         if(root != null){
             printInorder(root.left);
-            System.out.print(root.data + " ");
+            System.out.println(root.team.name+" ");
             printInorder(root.right);    
         }
         
     }
-    public void printPreorder(BSTNode root){
+    public void printPreorder(BSTNodeForTeams root){
         
         if(root != null){
-            System.out.print(root.data + " ");
-            printInorder(root.left);
-            printInorder(root.right);    
+            System.out.println(root.team.name+" ");
+            printPreorder(root.left);
+            printPreorder(root.right);    
         }
         
     }
-    public void printPostorder(BSTNode root){
+    public void printPostorder(BSTNodeForTeams root){
         
         if(root != null){
-            printInorder(root.left);
-            printInorder(root.right);
-            System.out.print(root.data + " ");
+            printPostorder(root.left);
+            printPostorder(root.right);
+            System.out.println(root.team.name+" ");
         }
         
     }

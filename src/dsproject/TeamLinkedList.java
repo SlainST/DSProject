@@ -7,7 +7,7 @@ public class TeamLinkedList {
     
     public TeamNode head = null; 
     
-    public BinarySearchTree bstTeams= new BinarySearchTree();
+    public BinarySearchTreeForTeams bstTeams= new BinarySearchTreeForTeams();
     
     public void Addteam(Team team){
         TeamNode temp = new TeamNode(team);
@@ -20,7 +20,7 @@ public class TeamLinkedList {
             }
             current.next = temp;
         }
-        bstTeams.insert(team.teamIDtoInt);
+        bstTeams.insertRecursive(team);
         
         totalTeamNumber++;
     }
@@ -30,6 +30,75 @@ public class TeamLinkedList {
             System.out.print(current.team + "__");
             current = current.next;
         }
-        System.out.println("____Bitiş");
+        
+    }
+    public Team getTeam(int teamsPlace) {
+        if (teamsPlace < 0 || teamsPlace >= totalTeamNumber) {
+            System.out.println("There is not that much teams : " + teamsPlace);
+            return null;
+        }
+    TeamNode current = head;
+        int index = 0;
+        while (current != null) {
+            if (index == teamsPlace) {
+                return current.team;
+            }
+            current = current.next;
+            index++;
+        }
+        
+        return null; 
+    }
+    
+    
+    public TeamNode removeLast() {
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+           
+            TeamNode temp = head;
+            head = null;
+            totalTeamNumber--;
+            return temp;
+        }
+
+        TeamNode current = head;
+        while (current.next.next != null) {
+            current = current.next; 
+        }
+
+        TeamNode temp = current.next; 
+        current.next = null; 
+        totalTeamNumber--;
+        return temp; 
+    }
+    
+    
+    
+    
+        public void addAt(int index, TeamNode node) {
+        if (index < 0 || index > totalTeamNumber) {
+            return;
+        }
+
+        if (index == 0) {
+   
+            node.next = head;
+            head = node;
+        } else {
+       
+            TeamNode current = head;
+            int currentIndex = 0;
+            while (currentIndex < index - 1) {
+                current = current.next;
+                currentIndex++;
+            }
+      
+            node.next = current.next;
+            current.next = node;
+        }
+        totalTeamNumber++;
     }
 }

@@ -21,13 +21,15 @@ public class DSProject {
         
         league.registerPlayerToHashMap(Hasan,team1);
         league.registerPlayerToHashMap(Serhat, team1);
+        league.registerPlayerToHashMap(Taskin, team1);
+        
         
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(1),team1);
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(1),team1);
         
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
-        league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(2),team1);
+
         
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(3),team1);
         league.registerPlayerToHashMap(team1.CreateNewRandomPlayer(3),team1);
@@ -47,10 +49,12 @@ public class DSProject {
         System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
         System.out.println(""+team7.name+"   "+ team7.TeamMemberCount+" --- "+league.teamHashMap.findTeam("CBU").teamIDtoInt);
         league.ArrangeMatches();
-        league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
+        System.out.println("--------------------");
+        //league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
         for(int i=0;i<28;i++){
             league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
         } 
+        System.out.println("-----------------------");
         Team deneme= league.heapTeams.removeMax();
         System.out.println(""+deneme.name+deneme.totalPoint);
         deneme= league.heapTeams.removeMax();
@@ -69,6 +73,27 @@ public class DSProject {
         System.out.println(""+deneme.name+deneme.totalPoint);
         
         
+        league.teams.head.team.thisTeamsBST.printInorder(league.teams.head.team.thisTeamsBST.root);
+        System.out.println("--------------------------------------");
+        team2.thisTeamsBST.printInorder(team2.thisTeamsBST.root); //alphabetic order team player names
+        System.out.println("-----------------");
+        league.teams.bstTeams.printInorder(league.teams.bstTeams.root);//alphabeticOrder team names
+        
+        System.out.println("-----------------------------");
+        Player best=league.heapPlayers.removeMax();
+        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        
+        best=league.heapPlayers.removeMax();
+        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        
+        best=league.heapPlayers.removeMax();
+        System.out.println(best.name+ " total goal: "+ best.goalScore);
+        
+        System.out.println("-------------------------");
+        
+        league.stackMatchHistory.PopTheMatch().MatchResult();  //last 3 Matches
+        league.stackMatchHistory.PopTheMatch().MatchResult();
+        league.stackMatchHistory.PopTheMatch().MatchResult();
         
     } 
 

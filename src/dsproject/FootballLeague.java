@@ -57,7 +57,7 @@ public class FootballLeague {
            }
            current=current.next;
        }
-
+       stackMatchHistory.PushToMatchHistory(match);
         //System.out.println(team1.name+": "+match.teamScore1+" - "+team2.name+": "+match.teamScore2 );
        
     }
@@ -127,27 +127,54 @@ public class FootballLeague {
     }
     
     void ArrangeMatches(){
-        TeamNode team1Current=teams.head;
-        TeamNode team2Current=teams.head.next;
+//        TeamNode team1Current=teams.head;
+//        TeamNode team2Current=teams.head.next;
+//        
+//        while(team1Current!=null){
+//            
+//            team2Current=team1Current.next;
+//            while(team2Current!=null){
+//                if(team1Current.team.teamIDtoInt==team2Current.team.teamIDtoInt){
+//                    team2Current= team2Current.next;
+//                }else{
+//                    queueMatches.EnQueue(team1Current.team);
+//                    queueMatches.EnQueue(team2Current.team);
+//                    
+//                }
+//                
+//                
+//                
+//                team2Current= team2Current.next;
+//            }
+//            team1Current= team1Current.next;
+//        }
+        int numTeams = teams.totalTeamNumber;
         
-        while(team1Current!=null){
+        
+
+        int numMatches = numTeams - 1; 
+        int matchesPerLoop= numTeams / 2;
+
+        for (int matchh = 0; matchh < numMatches; matchh++) {
             
-            team2Current=team1Current.next;
-            while(team2Current!=null){
-                if(team1Current.team.teamIDtoInt==team2Current.team.teamIDtoInt){
-                    team2Current= team2Current.next;
-                }else{
-                    queueMatches.EnQueue(team1Current.team);
-                    queueMatches.EnQueue(team2Current.team);
-                    
-                }
+
+            for (int match = 0; match < matchesPerLoop; match++) {
                 
                 
+                queueMatches.EnQueue(teams.getTeam(match));
+                queueMatches.EnQueue(teams.getTeam(numTeams - 1 - match));
                 
-                team2Current= team2Current.next;
+                //Team team2 = teams.getTeam(numTeams - 1 - match);
+
+                
+                    //System.out.println(team1 + " vs " + team2);
+                
             }
-            team1Current= team1Current.next;
+
+            teams.addAt(1, teams.removeLast());
         }
+   
+
     }
     
 }

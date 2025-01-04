@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dsproject;
 
-/**
- *
- * @author slainst
- */
+
 public class StackMatchHistory {
     Match PlayedGamesHistory[];
     int size;
@@ -25,21 +19,21 @@ public class StackMatchHistory {
     }
     public void PushToMatchHistory(Match match){
         if (isFull() == true){
-            System.out.println("Daha fazla maç oynanamaz...");
+            System.out.println("Cant play more games...");
         }
         else{
         indis ++;
         PlayedGamesHistory[indis] = match;
-        System.out.println("Push(): " + PlayedGamesHistory[indis]);
+      
         }
     }
-    public void PopTheMatch(){
-        if (isEmpty() == true){
-            System.out.println("Bu takım daha önce maç oynamamış...");
-        }
-        else{
-            System.out.println(PlayedGamesHistory[indis]);
+    public Match PopTheMatch(){
+        Match match;
+        
+            match=PlayedGamesHistory[indis];
+            
             indis--;
-        }
+        
+        return match;
     }
 }

@@ -4,14 +4,16 @@
  */
 package dsproject;
 
-public class BSTNode {
+public class BSTNodeForPlayers {
     
     int data;
-    BSTNode left;
-    BSTNode right;
+    Player player;
+    BSTNodeForPlayers left;
+    BSTNodeForPlayers right;
     
-    public BSTNode(int value){
-        this.data = value;
+    public BSTNodeForPlayers(Player playerr){
+        this.data = (int) playerr.name.charAt(0);
+        this.player =playerr;
     }
     
 }
