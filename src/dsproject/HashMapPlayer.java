@@ -26,7 +26,11 @@ public class HashMapPlayer {
 
             if(myHashArray[i]!=null){
                 int a= ((int) Math.pow(myHashArray[i].playerID,3))*17*11*13%HashMapSize;
-
+                while(newHashMap[a]!=null){
+                    a++;
+                    if(a>=size)
+                        a=0;
+                }   
                 newHashMap[a]=myHashArray[i];
             }
         }
@@ -36,12 +40,27 @@ public class HashMapPlayer {
     
     public Player findPlayer(int playerId){
         int a= ((int) Math.pow(playerId,3))*17*11*13%this.size;
-        
+        int temp=a;
+        while(myHashArray[a].playerID!=playerId){
+            a++;
+            if(a>=size){
+                a=0;
+                if(a==temp){
+                System.out.println("Player couldnt be found");
+                return null;
+                }
+            }
+            
+        }
         return myHashArray[a];
     }
     public void addNewPlayerToHashMap(Player player){
         int a= ((int) Math.pow(player.playerID,3))*17*11*13%size;
-        
+        while(myHashArray[a]!=null){
+            a++;
+            if(a>=size)
+                a=0;
+        }
         myHashArray[a]=player;
 
         //PlayerLinkedListWillBeAddedToResolveConflicts.

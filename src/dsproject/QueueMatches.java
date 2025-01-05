@@ -10,6 +10,7 @@ package dsproject;
  */
 public class QueueMatches {
     Team[] ScheduleMatch;
+    Team[] ScheduleMatchHold;
     int size;
     int front;
     int rear;
@@ -37,10 +38,35 @@ public class QueueMatches {
         }
         
     }
+    public void fixtureArrange(){
+        for(int i=0;i<ScheduleMatch.length;i++){
+            ScheduleMatchHold[i]= ScheduleMatch[i];
+        }
+    }
+    
+    public Team fixtureDequeue(){
+        Team willBePlayedMatch;
+        if(rear==-1){
+             System.out.println("There is not a Match to be played..");
+        }
+        
+             willBePlayedMatch= ScheduleMatchHold[front];
+            for (int i = 1;i<=rear; i++){
+                ScheduleMatchHold[i-1] = ScheduleMatchHold[i];
+            
+            
+        }
+            rear--;
+            System.out.println(willBePlayedMatch.name + " Match will be Played...");
+        return willBePlayedMatch;
+        
+    }
+    
+    
     public Team Dequeue(){
         Team newPlayedMatch;
         if(rear==-1){
-            System.out.println("Oynanacak Maç Yok...");
+            System.out.println("There is not a Match to be played..");
         }
         
              newPlayedMatch= ScheduleMatch[front];
@@ -50,7 +76,7 @@ public class QueueMatches {
             
         }
             rear--;
-            System.out.println(newPlayedMatch.name + " maçı oynandı...");
+            System.out.println(newPlayedMatch.name + " Match Played...");
         return newPlayedMatch;
         
     }

@@ -33,6 +33,7 @@ class Team extends TeamLinkedList {
     
     public void PlayerToTeam(Player player){
          players.AddPlayer(player);
+         player.whichTeam=this;
          if(player.position==0){
              this.HasAKeeper=true;
          }

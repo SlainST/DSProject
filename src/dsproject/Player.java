@@ -1,7 +1,6 @@
 package dsproject;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Player {
     // name, specific ID ,position, goal score
@@ -12,8 +11,9 @@ public class Player {
     int position;
     int goalScore;
     
+    Team whichTeam;
+    
 
-    Scanner scanner = new Scanner(System.in);
     // Player Addition
     public Player(String nameString,String surnameString,int position){
         this.name = nameString.substring(0,1).toUpperCase() + nameString.substring(1);
@@ -21,7 +21,7 @@ public class Player {
         while (position < 0 || position >= 4 ){
             System.out.println("Geçersiz Pozisyon");
             System.out.println("Geçerli pozisyon Giriniz:\n0: Kaleci\n1: Defans\n2: Orta Saha\n3: Forvet");
-            position =  scanner.nextInt();
+            this.position =  position;
         }
         this.playerID=IDGenerator(this);
         this.position = position;
@@ -43,9 +43,9 @@ public class Player {
     }
     
     
-    public void WriteData(Player player){
+     public void WriteData(Player player){
         System.out.println("Oyuncu bilgileri:");
-        System.out.println("Adı: " + player.name);
+        System.out.println("Adı: " + player.name +" "+ player.surname);
         System.out.println("ID: " + player.playerID);
         System.out.print("Pozisyon: ");
         switch (player.position){
@@ -64,9 +64,10 @@ public class Player {
             default:
                 System.out.println("yanlış pozisyon");
                 break;
-            
-        }           
+        }
+        System.out.println("Attığı Gol Sayısı: " + player.goalScore);
     }
+    
     
     
     

@@ -46,8 +46,8 @@ public class DSProject {
         Team team8 =league.CreateNewRandomTeam("AFY","Afyonspor",11);
         
         
-        System.out.println(""+league.teamHashMap.findTeam("CBU").teamID+ ", "+ league.teamHashMap.findTeam("CBU").TeamMemberCount);
-        System.out.println(""+team7.name+"   "+ team7.TeamMemberCount+" --- "+league.teamHashMap.findTeam("CBU").teamIDtoInt);
+        System.out.println(""+league.teamHashMap.findTeam("CBUFK").teamID+ ", "+ league.teamHashMap.findTeam("CBUFK").TeamMemberCount+" "+league.teamHashMap.findTeam("CBUFK").teamIDtoInt);
+        System.out.println(""+team7.name+"   "+ team7.TeamMemberCount+" --- ");
         league.ArrangeMatches();
         System.out.println("--------------------");
         //league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
@@ -81,14 +81,16 @@ public class DSProject {
         
         System.out.println("-----------------------------");
         Player best=league.heapPlayers.removeMax(1);
-        System.out.println(best.name+" " + best.surname+" total goal: "+ best.goalScore);
+        System.out.println(best.whichTeam.name +": ");
+        best.WriteData(best);
         
         best=league.heapPlayers.removeMax(1);
-        System.out.println(best.name+" " + best.surname+" total goal: "+ best.goalScore);
+        System.out.println(best.whichTeam.name +": ");
+        best.WriteData(best);
 
-        
         best=league.heapPlayers.removeMax(1);
-        System.out.println(best.name+" " + best.surname+ " total goal: "+ best.goalScore);
+        System.out.println(best.whichTeam.name +": ");
+        best.WriteData(best);
 
         
         
@@ -99,7 +101,7 @@ public class DSProject {
         league.stackMatchHistory.PopTheMatch().MatchResult();
         
         league.stackMatchHistory.PopTheMatch().MatchResult();
-        
+        System.out.println(league.playerHashMap.findPlayer(Taskin.playerID).name);
     } 
 
 }
