@@ -55,24 +55,14 @@ public class DSProject {
             league.PlayMatch(league.queueMatches.Dequeue(),league.queueMatches.Dequeue());
         } 
         System.out.println("-----------------------");
-        Team deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        deneme= league.heapTeams.removeMax();
-        System.out.println(""+deneme.name+deneme.totalPoint);
-        
-        
+        Team removeMax= league.heapTeams.removeMax();
+        while(removeMax!= null){
+            System.out.println(""+removeMax.name+ "\t"+removeMax.totalPoint +"\t"+removeMax.goalDifference);
+            removeMax = league.heapTeams.removeMax();
+            if(league.heapTeams.size == 0){
+                System.out.println(""+removeMax.name+ "\t"+removeMax.totalPoint +"\t"+removeMax.goalDifference);
+                break;}
+        }
         league.teams.head.team.thisTeamsBST.printInorder(league.teams.head.team.thisTeamsBST.root);
         System.out.println("--------------------------------------");
         team2.thisTeamsBST.printInorder(team2.thisTeamsBST.root); //alphabetic order team player names

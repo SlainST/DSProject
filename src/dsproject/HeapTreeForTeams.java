@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class HeapTreeForTeams {
     private Team[] team;
-    private int size;
+    public int size;
     private int capacity;
 
     // Constructor
@@ -82,11 +82,29 @@ public class HeapTreeForTeams {
     }
 
     // Heapify up to maintain heap property
+//    private void heapifyUp() {
+//        int index = size - 1;
+//        while (hasParent(index) && parent(index).totalPoint < team[index].totalPoint) {
+//            swap(getParentIndex(index), index);
+//            index = getParentIndex(index);
+//        }
+//    }
     private void heapifyUp() {
         int index = size - 1;
-        while (hasParent(index) && parent(index).totalPoint < team[index].totalPoint) {
-            swap(getParentIndex(index), index);
-            index = getParentIndex(index);
+        while (hasParent(index) && parent(index).totalPoint <= team[index].totalPoint) {
+            if(parent(index).totalPoint == team[index].totalPoint){
+                if (parent(index).goalDifference < team[index].goalDifference){
+                    swap(getParentIndex(index), index);
+                    index = getParentIndex(index);
+                    }
+                else{
+                    break;
+                }
+            }
+            if(parent(index).totalPoint < team[index].totalPoint){
+                swap(getParentIndex(index), index);
+                index = getParentIndex(index);  
+            }
         }
     }
 
@@ -101,20 +119,50 @@ public class HeapTreeForTeams {
     }
 
     // Heapify down to maintain heap property
+//    private void heapifyDown() {
+//        int index = 0;
+//        while (hasLeftChild(index)) {
+//            int largerChildIndex = getLeftChildIndex(index);
+//            if (hasRightChild(index) && rightChild(index).totalPoint > leftChild(index).totalPoint) {
+//                largerChildIndex = getRightChildIndex(index);
+//            }
+//
+//            if (team[index].totalPoint > team[largerChildIndex].totalPoint) {
+//                break;
+//            } else {
+//                swap(index, largerChildIndex);
+//            }
+//            index = largerChildIndex;
+//        }
+//    }
     private void heapifyDown() {
-        int index = 0;
-        while (hasLeftChild(index)) {
-            int largerChildIndex = getLeftChildIndex(index);
-            if (hasRightChild(index) && rightChild(index).totalPoint > leftChild(index).totalPoint) {
+    int index = 0;
+    while (hasLeftChild(index)) {
+        int largerChildIndex = getLeftChildIndex(index);
+        
+        // Determine which child has a higher totalPoint or needs tie-breaking based on goalDifference
+        if (hasRightChild(index)) {
+            if (rightChild(index).totalPoint > leftChild(index).totalPoint) {
                 largerChildIndex = getRightChildIndex(index);
+            } else if (rightChild(index).totalPoint == leftChild(index).totalPoint) {
+                if (rightChild(index).goalDifference > leftChild(index).goalDifference) {
+                    largerChildIndex = getRightChildIndex(index);
+                }
             }
-
-            if (team[index].totalPoint > team[largerChildIndex].totalPoint) {
-                break;
-            } else {
-                swap(index, largerChildIndex);
-            }
-            index = largerChildIndex;
         }
+
+        if (team[index].totalPoint < team[largerChildIndex].totalPoint) {
+            swap(index, largerChildIndex);
+        } else if (team[index].totalPoint == team[largerChildIndex].totalPoint) {
+            if (team[index].goalDifference < team[largerChildIndex].goalDifference) {
+                swap(index, largerChildIndex);
+            } else {
+                break;
+            }
+        } else {
+            break;
+        }
+        index = largerChildIndex;
     }
+}
 }
